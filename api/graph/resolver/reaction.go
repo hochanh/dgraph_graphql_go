@@ -90,7 +90,7 @@ func (rsv *Reaction) Subject(ctx context.Context) *ReactionSubject {
 		return &ReactionSubject{&Reaction{
 			root:       rsv.root,
 			uid:        v.UID,
-			authorUID:  v.Author[0].UID,
+			authorUID:  v.Author.UID,
 			subjectUID: rsv.uid,
 			id:         v.ID,
 			creation:   v.Creation,
@@ -191,7 +191,7 @@ func (rsv *Reaction) Reactions(ctx context.Context) ([]*Reaction, error) {
 			root:       rsv.root,
 			uid:        subReaction.UID,
 			id:         subReaction.ID,
-			authorUID:  subReaction.Author[0].UID,
+			authorUID:  subReaction.Author.UID,
 			subjectUID: rsv.uid,
 			creation:   subReaction.Creation,
 			emotion:    subReaction.Emotion,

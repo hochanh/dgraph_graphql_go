@@ -81,7 +81,7 @@ func (str *impl) EditReaction(
 
 	// Check permission
 	if err = auth.Authorize(ctx, auth.IsOwner{
-		Owner: store.ID(qr.Reaction[0].Author[0].ID),
+		Owner: store.ID(qr.Reaction[0].Author.ID),
 	}); err != nil {
 		return
 	}
@@ -97,7 +97,7 @@ func (str *impl) EditReaction(
 	result.Creation = react.Creation
 	result.Author = &store.User{
 		GraphNode: store.GraphNode{
-			UID: react.Author[0].UID,
+			UID: react.Author.UID,
 		},
 	}
 	result.Emotion = react.Emotion

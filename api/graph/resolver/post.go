@@ -120,7 +120,7 @@ func (rsv *Post) Reactions(ctx context.Context) []*Reaction {
 			uid:        reaction.UID,
 			id:         reaction.ID,
 			subjectUID: rsv.uid,
-			authorUID:  reaction.Author[0].UID,
+			authorUID:  reaction.Author.UID,
 			creation:   reaction.Creation,
 			emotion:    reaction.Emotion,
 			message:    reaction.Message,

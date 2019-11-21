@@ -271,7 +271,7 @@ func (rsv *Resolver) Reaction(
 		emotion:    reaction.Emotion,
 		message:    reaction.Message,
 		creation:   reaction.Creation,
-		authorUID:  reaction.Author[0].UID,
+		authorUID:  reaction.Author.UID,
 		subjectUID: *reaction.Subject[0].UID(),
 	}
 }
