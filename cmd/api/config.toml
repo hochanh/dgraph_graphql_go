@@ -10,7 +10,7 @@ session-key-generator = "default"
 host = "localhost:10180"
 
 [shield]
-whitelist = true
+whitelist = false
 persist-to = "./shield.json"
 
 [log]
