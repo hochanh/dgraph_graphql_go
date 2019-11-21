@@ -84,7 +84,7 @@ func (rsv *Reaction) Subject(ctx context.Context) *ReactionSubject {
 			creation:  v.Creation,
 			title:     v.Title,
 			contents:  v.Contents,
-			authorUID: v.Author[0].UID,
+			authorUID: v.Author.UID,
 		}}
 	case *dgraph.Reaction:
 		return &ReactionSubject{&Reaction{

@@ -78,7 +78,7 @@ func (str *impl) EditPost(
 
 	// Check permission
 	if err = auth.Authorize(ctx, auth.IsOwner{
-		Owner: store.ID(qr.Post[0].Author[0].ID),
+		Owner: store.ID(qr.Post[0].Author.ID),
 	}); err != nil {
 		return
 	}
@@ -108,7 +108,7 @@ func (str *impl) EditPost(
 	result.Creation = qr.Post[0].Creation
 	result.Author = &store.User{
 		GraphNode: store.GraphNode{
-			UID: qr.Post[0].Author[0].UID,
+			UID: qr.Post[0].Author.UID,
 		},
 	}
 

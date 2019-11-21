@@ -124,7 +124,7 @@ func (rsv *Resolver) Posts(ctx context.Context) []*Post {
 			title:     post.Title,
 			contents:  post.Contents,
 			creation:  post.Creation,
-			authorUID: post.Author[0].UID,
+			authorUID: post.Author.UID,
 		}
 	}
 	return resolvers
@@ -218,7 +218,7 @@ func (rsv *Resolver) Post(
 		title:     post.Title,
 		contents:  post.Contents,
 		creation:  post.Creation,
-		authorUID: post.Author[0].UID,
+		authorUID: post.Author.UID,
 	}
 }
 
