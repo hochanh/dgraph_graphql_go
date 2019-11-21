@@ -22,7 +22,7 @@ func (str *impl) setupSchema(ctx context.Context) error {
 			User.email: string @index(exact) .
 			User.displayName: string @index(exact) .
 			User.posts: uid .
-			User.sessions: uid .
+			User.sessions: [uid] .
 			User.password: string .
 			User.publishedReactions: uid .
 

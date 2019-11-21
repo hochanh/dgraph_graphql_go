@@ -40,7 +40,7 @@ func (srv *server) onAuth(
 		return
 	}
 
-	userID = store.ID(result.Session[0].User[0].ID)
+	userID = store.ID(result.Session[0].User.ID)
 	sessionCreationTime = result.Session[0].Creation
 	return
 }

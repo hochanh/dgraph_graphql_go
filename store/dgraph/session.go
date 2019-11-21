@@ -7,6 +7,6 @@ type Session struct {
 	UID       string    `json:"uid"`
 	Key       string    `json:"Session.key"`
 	Creation  time.Time `json:"Session.creation"`
-	User      []User    `json:"Session.user"`
+	User      User      `json:"Session.user"`
 	RSessions []UID     `json:"~sessions"`
 }

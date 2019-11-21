@@ -32,6 +32,7 @@ func (rsv *Session) Creation() graphql.Time {
 func (rsv *Session) User(
 	ctx context.Context,
 ) *User {
+	// {"session":[{"Session.user":{"uid":"0x11","User.id":"06eb908ca9c14d07ae6a71ef95b8d356","User.creation":"2019-11-21T13:21:25.591677084+07:00","User.email":"mail3@mac.com","User.displayName":"mac user3"}}]}
 	var query struct {
 		Sessions []dgraph.Session `json:"session"`
 	}
@@ -57,7 +58,7 @@ func (rsv *Session) User(
 		return nil
 	}
 
-	owner := query.Sessions[0].User[0]
+	owner := query.Sessions[0].User
 	return &User{
 		root:        rsv.root,
 		uid:         owner.UID,

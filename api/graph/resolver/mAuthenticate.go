@@ -51,7 +51,7 @@ func (rsv *Resolver) Authenticate(
 		auth.CtxSession,
 	).(*auth.RequestSession); isSession {
 		session.Creation = sess.Creation
-		session.UserID = sess.User[0].ID
+		session.UserID = sess.User.ID
 		session.ShieldClientRole = auth.GQLShieldClientRegular
 	}
 
@@ -60,6 +60,6 @@ func (rsv *Resolver) Authenticate(
 		uid:      sess.UID,
 		key:      sess.Key,
 		creation: sess.Creation,
-		userUID:  sess.User[0].UID,
+		userUID:  sess.User.UID,
 	}
 }

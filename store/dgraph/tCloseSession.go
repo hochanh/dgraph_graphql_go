@@ -67,7 +67,7 @@ func (str *impl) CloseSession(
 
 	// Authorize client
 	if err = auth.Authorize(ctx, auth.IsOwner{
-		Owner: sess.User[0].ID,
+		Owner: sess.User.ID,
 	}); err != nil {
 		return
 	}
@@ -82,7 +82,7 @@ func (str *impl) CloseSession(
 			UID          string `json:"uid"`
 			UserSessions []UID  `json:"User.sessions"`
 		}{
-			UID:          sess.User[0].UID,
+			UID:          sess.User.UID,
 			UserSessions: []UID{UID{NodeID: sess.UID}},
 		},
 

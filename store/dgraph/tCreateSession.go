@@ -94,7 +94,11 @@ func (str *impl) CreateSession(
 	if err != nil {
 		return
 	}
-	result.UID = sessCreationMut["blank-0"]
+
+	for _, value := range sessCreationMut {
+		result.UID = value
+		break
+	}
 
 	// Update owner (User.sessions -> new session)
 	var updateOwnerJSON []byte
@@ -112,6 +116,7 @@ func (str *impl) CreateSession(
 	_, err = txn.Mutation(ctx, &api.Mutation{
 		SetJson: updateOwnerJSON,
 	})
+
 	if err != nil {
 		return
 	}
